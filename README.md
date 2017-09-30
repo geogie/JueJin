@@ -49,3 +49,5 @@
      可能被虚拟机忽略。 RUNTIME:在运行时有效。
  13.  @LayoutRes xml布局类型标示
  1. @BindingAdapter 自定义xml中的属性
+ 
+ [参考](https://github.com/fashare2015/MVVM-JueJin)
