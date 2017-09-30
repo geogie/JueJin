@@ -1,4 +1,4 @@
-# 练手：高仿掘金App —— 基于 databinding kotlin+Java
+# 练手：掘金App —— 基于 databinding kotlin+Java
  1. 项目结构  
     app-->(net,imageloader,adapter,databinding,base-ui,util)  
     net  
@@ -50,4 +50,4 @@
  13.  @LayoutRes xml布局类型标示
  1. @BindingAdapter 自定义xml中的属性
  
- [参考](https://github.com/fashare2015/MVVM-JueJin)
+ [参考大神](https://github.com/fashare2015/MVVM-JueJin)
