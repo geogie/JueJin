@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="article_header_more">的更多文章</string>
+    <string name="article_header_comments_count">条评论</string>
+</resources>

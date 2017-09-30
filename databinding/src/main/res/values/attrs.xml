@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ImageView">
+        <attr name="uri" format="string"/>
+        <!--@DrawableRes int-->
+        <attr name="placeholder" format="reference" />
+        <!--ImageLoader.Callback-->
+        <attr name="onImageLoad" format="reference" />
+        <!--圆角半径 dimension-->
+        <attr name="radius" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="View">
+        <attr name="visibility" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ViewGroup">
+        <!--com.fashare.databinding.ListVM-->
+        <attr name="vm" format="reference"/>
+        <!--Object[] | List<?>-->
+        <attr name="data" format="reference" />
+        <!--com.fashare.adapter.OnItemClickListener<?>-->
+        <attr name="onItemClick" format="reference" />
+
+        <!--                bind Fragment               -->
+        <!--List<? extends Fragment>-->
+        <attr name="fragments" format="reference"/>
+        <attr name="curIndex" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="RecyclerView">
+        <!--List<? extends me.tatarka.bindingcollectionadapter.ItemView>-->
+        <attr name="header" format="reference"/>
+        <!--List<?>-->
+        <attr name="headerData" format="reference" />
+        <!--com.fashare.adapter.OnItemClickListener<?>-->
+        <!--<attr name="onItemClick" format="reference" />-->
+    </declare-styleable>
+
+    <declare-styleable name="ViewPager">
+        <!--int-->
+        <attr name="offscreenPageLimit" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="TabLayout">
+        <!--@IdRes int-->
+        <attr name="viewPagerIdRes" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="WebView">
+        <!--<attr name="uri" format="string"/>-->
+        <attr name="html" format="string"/>
+        <attr name="cssPath" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="Toolbar">
+        <attr name="title" format="string"/>
+    </declare-styleable>
+</resources>

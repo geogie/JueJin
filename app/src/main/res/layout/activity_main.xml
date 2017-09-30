@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <!--数据部分-->
+    <data>
+        <!--中间和顶部：内容部分 数据-->
+        <variable
+            name="pages"
+            type="com.georgeren.juejin.viewmodel.TabPagesVM" />
+        <!--底部导航 数据-->
+        <variable
+            name="tab"
+            type="com.georgeren.juejin.viewmodel.TabVM" />
+    </data>
+
+    <!--view部分-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--中间和顶部：内容部分-->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            bind:curIndex="@{tab.curIndex}"
+            bind:fragments="@{pages.pageList}" />
+        <!--底部：导航-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/g_item_bg"
+            android:orientation="horizontal"
+            bind:data="@{tab.data}"
+            bind:vm="@{tab}" />
+    </LinearLayout>
+</layout>

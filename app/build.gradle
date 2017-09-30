@@ -1,0 +1,17 @@
+apply plugin: 'com.android.application'
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(":net")
+    compile project(":imageloader")
+    compile project(":adapter")
+    compile project(":databinding")
+    compile project(":base-ui")
+    compile project(":util")
+
+    /******* support 包 ****************************************************************************/
+    compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+
+    /******* 其它常用库 ****************************************************************************/
+    // 常用 utils
+    compile "com.blankj:utilcode:$rootProject.ext.utilcodeVersion"
+}

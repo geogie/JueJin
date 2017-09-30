@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable name="loginVM" type="com.georgeren.juejin.viewmodel.LoginVM"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/login_margin"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/login_margin"
+                android:src="@drawable/login_logo"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/login_margin"
+                android:background="@drawable/g_edit_text_bg">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/login_edit_padding"
+                    android:hint="@string/login_phone_num_hint"
+                    android:text="@={loginVM.userName}"/>
+                <!-- @={XXX}: two way databinding!!! -->
+                <!--https://halfthought.wordpress.com/2016/03/23/2-way-data-binding-on-android/-->
+
+                <include layout="@layout/g_line_horizontal"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/login_edit_padding"
+                    android:inputType="textPassword"
+                    android:hint="@string/login_password_hint"
+                    android:text="@={loginVM.passWord}"/>
+
+            </LinearLayout>
+
+            <Button
+                style="@style/LoginButton"
+                android:layout_marginTop="12dp"
+                android:text="@string/login_login"
+                android:onClick="@{loginVM.doLogin}"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_forget_psd"
+                    android:textColor="@color/login_text_light"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/login_goto_register"
+                    android:textColor="@color/login_text_default"
+                    android:textSize="13sp"
+                    android:onClick="@{loginVM.toRegister}"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:text="@string/login_tips"
+                android:textColor="@color/login_text_default"
+                android:textSize="15sp"
+                android:onClick="@{loginVM.toGithub}"/>
+
+        </LinearLayout>
+
+        <include layout="@layout/g_title_bar"/>
+
+    </FrameLayout>
+
+</layout>
+

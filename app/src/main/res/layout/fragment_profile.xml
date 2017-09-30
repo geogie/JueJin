@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.georgeren.juejin.R" />
+
+        <variable
+            name="profileVM"
+            type="com.georgeren.juejin.viewmodel.ProfileVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/g_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="@string/profile_title"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <!--点击登录-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/profile_margin"
+                    android:background="@color/profile_item_bg"
+                    android:gravity="center"
+                    android:onClick="@{profileVM.toLogin}"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/profile_padding">
+                    <!--头像-->
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        bind:placeholder="@{R.drawable.g_default_avatar}"
+                        bind:uri="@{profileVM.user != null? profileVM.user.avatarLarge: null}"
+                        tools:src="@drawable/g_default_avatar" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/profile_padding"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <!--名字-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text='@{profileVM.user != null? profileVM.user.username: (@string/profile_login)}'
+                            android:textColor="@color/profile_title"
+                            android:textSize="20sp"
+                            tools:text="login/register" />
+                        <!--job／company-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text='@{profileVM.parseJobAndCompany(profileVM.user)}'
+                            android:textColor="@color/profile_content"
+                            android:textSize="13sp"
+                            tools:text="add job @ add company" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="25dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/profile_move" />
+
+                </LinearLayout>
+
+                <include layout="@layout/g_line_horizontal" />
+                <!--列表：我喜欢的、收藏集、阅读过的文章、标签管理、意见反馈、设置-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/profile_margin"
+                    android:background="@color/profile_item_bg"
+                    android:orientation="vertical"
+                    bind:data="@{profileVM.data}"
+                    bind:vm="@{profileVM}" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>
+

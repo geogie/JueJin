@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers" />
+
+        <variable name="item" type="com.georgeren.juejin.viewmodel.ExploreListVM.HeaderVM"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            bind:vm="@{item.banner}"
+            bind:data="@{item.banner.data}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/explore_item_bg"
+            bind:vm="@{item.entrys}"
+            bind:data="@{item.entrys.data}"/>
+
+        <include layout="@layout/g_line_horizontal"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/explore_margin"
+            android:orientation="vertical"
+            android:background="@color/explore_item_bg">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/explore_margin"
+                android:drawableLeft="@drawable/explore_feidian_small"
+                android:drawableRight="@drawable/g_move"
+                android:drawablePadding="5dp"
+                android:text="@string/explore_topic"
+                android:textColor="@color/explore_title"/>
+
+            <include layout="@layout/g_line_horizontal"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                bind:layoutManager="@{LayoutManagers.linearHorizontal()}"
+                bind:vm="@{item.topics}"
+                bind:data="@{item.topics.data}"/>
+
+            <include layout="@layout/g_line_horizontal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/explore_margin"
+            android:background="@color/explore_item_bg">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/explore_margin"
+                android:drawableLeft="@drawable/explore_hot_small"
+                android:drawablePadding="5dp"
+                android:text="@string/explore_hot"
+                android:textColor="@color/explore_title"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/explore_margin"
+                android:drawableLeft="@drawable/explore_tag_settings"
+                android:drawablePadding="5dp"
+                android:text="@string/explore_hot_settings"
+                android:textColor="@color/explore_content"/>
+
+        </LinearLayout>
+
+        <include layout="@layout/g_line_horizontal"/>
+
+    </LinearLayout>
+
+</layout>
+
